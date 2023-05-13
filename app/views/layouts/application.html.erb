@@ -14,18 +14,31 @@
     <header>
       <span>Logo</span>
       <ul class="navbar">
-        <% if costomer_sign_in? %>
+        <% if customer_signed_in? %>
           <li>
-            <%= link_to "マイページ" customer_path(current_use_id) %>
+            <%= link_to "マイページ", customer_path(current_use_id) %>
           </li>
           <li>
-            <%= link_to "商品一覧" items_path %>
+            <%= link_to "商品一覧", items_path %>
           </li>
           <li>
-            <%= link_to "カート" cart_items_path%>
+            <%= link_to "カート", cart_items_path %>
           </li>
           <li>
-            <%= link_to "ログアウト" destroy_customer_session_path ,method: :delete %>
+            <%= link_to "ログアウト", destroy_customer_session_path ,method: :delete %>
+          </li>
+        <% elsif %>
+          <li>
+            <%= link_to "商品一覧", admin_items_path %>
+          </li>
+          <li>
+            <%= link_to "会員一覧", admin_customers_path %>
+          </li>
+          <li>
+            <%= link_to "注文履歴一覧", admin_root_path %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_admin_session_path ,method: :delete %>
           </li>
         <% else %>
           <li>
