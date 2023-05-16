@@ -11,12 +11,14 @@ Rails.application.routes.draw do
   devise_for :admin,skip:[:registrations,:passwords],controllers:{
     sessions: "admin/sessions"
   }
-  resources :customers,only: [:show,:edit,:update,:unsubscribe,:withdraw]
-  resources :items,only: [:index,:show]
-  resources :cart_items,only: [:index,:update,:destroy,:destroy_all,:create]
-  resources :oders,only: [:new,:confirm,:thanks,:create,:index,:show]
-  root to: 'public/homes#top'
-  get 'about' => 'public/homes#about'
+  scope module: :public do
+    resources :customers,only: [:show,:edit,:update,:unsubscribe,:withdraw]
+    resources :items,only: [:index,:show]
+    resources :cart_items,only: [:index,:update,:destroy,:destroy_all,:create]
+    resources :orders,only: [:new,:confirm,:thanks,:create,:index,:show]
+    root to: 'homes#top'
+    get 'about' => 'homes#about'
+  end
 
   namespace :admin do
   #管理者側のルーティング設定
