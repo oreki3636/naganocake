@@ -12,12 +12,14 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   scope module: :public do
-    resources :customers,only: [:show,:edit,:update,:unsubscribe,:withdraw]
-    resources :items,only: [:index,:show]
+    resources :customers,only: [:show,:edit,:update,]
+    resources :items,only: [:index,:show,:create]
     resources :cart_items,only: [:index,:update,:destroy,:destroy_all,:create]
     resources :orders,only: [:new,:confirm,:thanks,:create,:index,:show]
     root to: 'homes#top'
     get 'about' => 'homes#about'
+    get 'customer/unsubscribe' => 'customers#unsubscribe',as: 'unsubscribe'
+    patch 'customer/withdraw' => 'customers#withdraw',as: 'withdraw'
   end
 
   namespace :admin do
