@@ -8,10 +8,10 @@
     </tr>
   </thead>
   <tbody>
-    <%= @customers.each do |customer| %>
+    <% @customers.each do |customer| %>
     <tr>
       <td><%= customer.id %></td>
-      <td><%= link_to customer.first_name %></td>
+      <td><%= link_to customer.fullname, admin_customer_path(customer.id) %></td>
       <td><%= customer.email %></td>
     </tr>
     <% end %>

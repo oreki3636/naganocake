@@ -1,4 +1,8 @@
 class Public::ItemsController < ApplicationController
-  def create
+  def index
+    @items=Item.all
   end
+
+
+
 end

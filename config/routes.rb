@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   }
   scope module: :public do
     resources :customers,only: [:show,:edit,:update,]
-    resources :items,only: [:index,:show,:create]
+    resources :items,only: [:index,:show,:create,:update]
     resources :cart_items,only: [:index,:update,:destroy,:destroy_all,:create]
     resources :orders,only: [:new,:confirm,:thanks,:create,:index,:show]
     root to: 'homes#top'
