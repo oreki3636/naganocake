@@ -1,0 +1,28 @@
+<h2>ショッピングカート</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>商品名</th>
+    </tr>
+    <tr>
+      <th>単価（税込）</th>
+    </tr>
+    <tr>
+      <th>数量</th>
+    </tr>
+    <tr>
+      <th>小計</th>
+    </tr>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart_items.each do |cart_item| %>
+    <tr>
+      <th><%= image_tag cart_item.item.get_image(50,50) %></th>
+      <th><%= cart_item.item.name %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
