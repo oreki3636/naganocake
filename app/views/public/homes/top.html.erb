@@ -8,3 +8,20 @@
 
 
 <h2>新着商品</h2>
+<% @items.each do |item| %>
+<table class="table">
+  <tbody>
+    <tr>
+      <td><%= image_tag item.get_image(100,100) %></td>
+    </tr>
+    <tr>
+      <td><%= item.name %></td>
+    </tr>
+    <tr>
+      <td><%= item.price %></td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+<%= link_to "すべての商品を見る",items_path %>
+
