@@ -14,12 +14,13 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :customers,only: [:show,:edit,:update,]
     resources :items,only: [:index,:show,:create,:update]
-    resources :cart_items,only: [:index,:update,:destroy,:destroy_all,:create]
+    resources :cart_items,only: [:index,:update,:destroy,:create]
     resources :orders,only: [:new,:confirm,:thanks,:create,:index,:show]
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    get 'customer/unsubscribe' => 'customers#unsubscribe',as: 'unsubscribe'
-    patch 'customer/withdraw' => 'customers#withdraw',as: 'withdraw'
+    get 'customers/unsubscribe' => 'customers#unsubscribe',as: 'unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw',as: 'withdraw'
+    post 'orders/confirm' => 'orders#confirm',as: 'confirm'
   end
 
   namespace :admin do

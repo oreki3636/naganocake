@@ -6,4 +6,5 @@ class CartItem < ApplicationRecord
    def subtotal
     (self.item.taxprice).floor*amount
    end
+
 end
