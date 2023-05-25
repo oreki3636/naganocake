@@ -2,7 +2,7 @@
 <h3><strong>支払方法</strong></h3>
 <%= form_with model: @order, url: confirm_path ,method: :post do |f| %>
   <%= f.radio_button :method_of_payment, "credit_card" %>
-  <%= f.label :method_of_payment_credit_card, "クレジットカード" %>
+  <%= f.label :method_of_payment_credit_card, "クレジットカード" %><br>
 
   <%= f.radio_button :method_of_payment, "transfer" %>
   <%= f.label :method_of_payment_transfer, "銀行振込" %>
