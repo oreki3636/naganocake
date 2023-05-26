@@ -8,7 +8,7 @@ class Public::OrdersController < ApplicationController
     @order=Order.new
     @order.postage=800
     @order.save
-    redirect_to 
+    redirect_to
   end
 
   def confirm
