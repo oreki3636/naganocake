@@ -60,10 +60,10 @@
 </table>
 
 <h3>支払い方法</h3>
-<
+<%= @order.method_of_payment_i18n %>
 
 
 <h3>お届け先</h3>
-
+<%= @order.shipping_postal_code + @order.shipping_address + @order.shipping_name %>
 
 <%= link_to "注文を確定する",thanks_path %>

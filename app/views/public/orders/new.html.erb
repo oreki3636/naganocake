@@ -8,25 +8,25 @@
   <%= f.label :method_of_payment_transfer, "銀行振込" %>
 
 <h3><strong>お届け先</strong></h3>
-  <%= f.radio_button :shipping_address, "address" %>
+  <%= f.radio_button :select_address, "address" %>
   <%= f.label :shipping_address_address, "ご自身の住所" %><br>
   <%= @customer.postal_code+@customer.address %><br>
   <%= @customer.fullname %>
 
 <h3><strong>新しいお届け先</strong></h3>
-  <%= f.radio_button :shipping_address, "new_adderss" %>
+  <%= f.radio_button :select_address, "new_adderss" %>
   <%= f.label :shipping_address_new_address, "新しいお届け先" %>
   <div class="field">
     <%= f.label :郵便番号（ハイフンなし） %>
-    <%= f.text_field :postal_code %>
+    <%= f.text_field :shipping_postal_code %>
   </div>
   <div class="field">
     <%= f.label :住所 %>
-    <%= f.text_field :address %>
+    <%= f.text_field :shipping_address %>
   </div>
   <diV class="field">
     <%= f.label :宛名 %>
-    <%= f.text_field :fullname %>
+    <%= f.text_field :shipping_name %>
   </diV>
   <%= f.submit "確認画面へ進む" %>
 <% end %>

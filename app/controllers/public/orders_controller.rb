@@ -16,6 +16,11 @@ class Public::OrdersController < ApplicationController
     @order=Order.new(order_params)
     @total=0
     @order.postage=800
+    if params[:order][:select_address]=="address"
+      @order.shipping_postal_code=current_customer.postal_code
+      @order.shipping_address=current_customer.address
+      @order.shipping_name=current_customer.fullname
+    end
 
 
   end
