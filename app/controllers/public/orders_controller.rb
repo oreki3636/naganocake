@@ -31,9 +31,17 @@ class Public::OrdersController < ApplicationController
       @order.shipping_address=current_customer.address
       @order.shipping_name=current_customer.fullname
     end
-
   end
-  
+
+  def index
+    @orders=current_customer.orders.all
+    @order=Order.find(params[:id])
+  end
+
+  def show
+    @order=Order.find(params[:id])
+  end
+
   def thanks
   end
 
