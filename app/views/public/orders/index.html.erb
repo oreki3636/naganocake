@@ -18,12 +18,18 @@
     </tr>
   </thead>
   <tbody>
-    <% @orders.each do |order| %>
+     <% @orders.each do |order| %>
     <tr>
       <td><%= order.created_at %></td>
     </tr>
     <tr>
       <td><%= order.shipping_postal_code + order.shipping_address + order.shipping_name %></td>
+    </tr>
+    <tr>
+      <td><% order.order_detail each do |order_detail| %>
+            <%= order_detail.item.name %>
+          <% end %>
+      </td>
     </tr>
     <tr>
       <% total = 0 %>
@@ -35,14 +41,9 @@
       </td>
     </tr>
     <tr>
-      <%= form_with model: @order do |f| %>
-      <th>
-        <%= hidden_field :created_at, value => order.created_at %>
-        <%= hidden_field :shopping_pastal_code ,value => order.shipping_postal_code %>
-
-
-      </th>
+      <td></td>
     </tr>
+
 
 
     <% end %>

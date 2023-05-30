@@ -54,7 +54,7 @@
       <td><%= @total %></td>
     </tr>
     <tr>
-      <td><%= @order.postage+@total %></td>
+      <td><%= @total+=@order.postage %></td>
     </tr>
   </tbody>
 </table>
