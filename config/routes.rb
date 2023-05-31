@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   scope module: :public do
-    resources :customers,only: [:show,:edit,:update,]
     resources :items,only: [:index,:show,:create,:update]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all',as: "destroy_all"
     resources :cart_items,only: [:index,:update,:destroy,:create]
@@ -20,7 +19,10 @@ Rails.application.routes.draw do
     resources :orders,only: [:new,:create,:index,:show]
     root to: 'homes#top'
     get 'about' => 'homes#about'
+    get 'customers/mypage' => 'customers#show',as: 'mypage'
+    get 'customers/mypage/edit' => 'customers#edit',as: 'edit'
     get 'customers/unsubscribe' => 'customers#unsubscribe',as: 'unsubscribe'
+    patch 'customers/update' => 'customers#update',as: 'mypage_update'
     patch 'customers/withdraw' => 'customers#withdraw',as: 'withdraw'
     post 'orders/confirm' => 'orders#confirm',as: 'confirm'
   end
