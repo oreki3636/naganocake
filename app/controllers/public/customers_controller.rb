@@ -19,6 +19,14 @@ class Public::CustomersController < ApplicationController
     @customer=current_customer
   end
 
+  def withdraw
+    @customer=current_customer
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
+
   protected
   def customer_params
     params.require(:customer).permit(:first_name,:last_name,:first_name_kana,:last_name_kana,:postal_code,:address,:telephone_number)

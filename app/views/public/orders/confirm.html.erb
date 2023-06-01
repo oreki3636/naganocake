@@ -4,29 +4,17 @@
   <thead>
     <tr>
       <th>商品名</th>
-    </tr>
-    <tr>
       <th>単価（税込）</th>
-    </tr>
-    <tr>
       <th>数量</th>
-    </tr>
-    <tr>
       <th>小計</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><%= image_tag cart_item.item.get_image(100,100) %></td>
-      <td><%= cart_item.item.name %></td>
-    </tr>
-    <tr>
+          <%= cart_item.item.name %></td>
       <td><%= cart_item.item.taxprice %></td>
-    </tr>
-    <tr>
       <td><%= cart_item.amount %></td>
-    </tr>
-    <tr>
       <td><%= cart_item.subtotal %></td>
     </tr>
   </tbody>
@@ -35,28 +23,18 @@
 <% end %>
 
 <table class="table">
-  <thead>
     <tr>
       <th>送料</th>
-    </tr>
-    <tr>
-      <th>商品合計</th>
-    </tr>
-    <tr>
-      <th>請求金額</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
       <td><%= @order.postage %> </td>
     </tr>
     <tr>
+      <th>商品合計</th>
       <td><%= @total %></td>
     </tr>
     <tr>
+      <th>請求金額</th>
       <td><%= @total+=@order.postage %></td>
     </tr>
-  </tbody>
 </table>
 
 <h3>支払い方法</h3>
