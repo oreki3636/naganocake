@@ -22,7 +22,7 @@
           <% total = 0 %>
       <td><% order.order_details.each do |order_detail| %>
             <%= order_detail.item.name %>
-            <% total += order_detail.item.price * order_detail.quantity %>
+            <% total += order_detail.item.taxprice * order_detail.quantity %>
           <% end %>
           <%= order.postage+total %></td>
       <td><%= link_to "表示する",order_path(order.id) %></td>

@@ -17,7 +17,7 @@
           <%= cart_item.item.name %></td>
       <td><%= cart_item.item.taxprice %></td>
       <td class="form-group">
-        <%= form_with model: cart_item do |f| %>
+        <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch do |f| %>
         <%= f.hidden_field :item_id, :value => cart_item.id %>
         <%= f.select :amount, *[1..5] %>
         <%= f.submit "変更" %>

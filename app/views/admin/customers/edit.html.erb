@@ -1,6 +1,6 @@
 <h2><%= @customer.fullname %>さんの会員情報編集</h2>
 
-<%= form_with model: @customer do |f| %>
+<%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
 
 <div class="form-group">
   <label for="customer_id">会員ID</label>
