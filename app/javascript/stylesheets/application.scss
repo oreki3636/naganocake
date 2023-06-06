@@ -1,1 +1,23 @@
 @use '~bootstrap/scss/bootstrap';
+
+.parent {
+  width: 1000px;
+  background: white;
+  position: relative;
+
+}
+
+.top-img {
+  width: 100%;
+  height: auto;
+}
+
+.box {
+  width: 400px;
+  background: orange;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+}

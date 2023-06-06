@@ -1,26 +1,19 @@
-<table class="table">
-  <tbody>
-    <tr>
-      <td><%= image_tag @item.get_image(300,300) %></td>
-    </tr>
-    <tr>
-      <td><%= @item.name %></td>
-    </tr>
-    <tr>
-      <td><%= @item.introduction %></td>
-    </tr>
-    <tr>
-      <td><%= @item.taxprice %>(税込)</td>
-    </tr>
-    <tr>
-      <td class="form-group">
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= image_tag @item.get_image(300,300) %>
+    </div>
+
+    <div class="col">
+      <h2><%= @item.name %></h2>
+      <p><%= @item.introduction %></p>
+      <br>
+      <h3><%= @item.taxprice %>(税込)</h3>
       <%= form_with model: @cart_item, url: cart_items_path do |f| %>
         <%= f.hidden_field :item_id, :value => @item.id %>
-        <%= f.select :amount, *[1..5] %>
-        <%= f.submit "カートに入れる"%>
+        <%= f.select :amount, *[1..5],{ include_blank: '選択してください' } %>
+        <%= f.submit "カートに入れる", class: "btn btn-success"%>
       <% end %>
-      </td>
-
-    </tr>
-  </tbody>
-</table>
+    </div>
+  </div>
+</div>

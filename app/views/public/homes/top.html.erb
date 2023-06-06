@@ -1,25 +1,28 @@
+<div class="container">
+  <div class="parent">
+    <%= image_tag "32787840.jpg",class: "top-img" %>
 
+    <div class="box">
+      <p>ようこそ、ながのCAKEへ！<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、<br>
+      購入には会員登録が必要になります。</p>
+    </div>
+  </div>
 
+  <h2>新着商品</h2>
+  <div class="row">
+    <% @items.each do |item| %>
+    <div style="width:25%">
+      <%= image_tag item.get_image(150,150),size: "150x150" %><br>
+      <%= item.name %><br>
+      <%= item.price %><br>
+    </div>
+    <% end %>
+  </div>
 
-<p>ようこそ、ながのCAKEへ！<br>
-このサイトは、ケーキ販売のECサイトになります。<br>
-会員でない方も商品の閲覧はできますが、<br>
-購入には会員登録が必要になります。</p>
-
-
-<h2>新着商品</h2>
-<% @items.each do |item| %>
-<table class="table">
-    <tr>
-      <td><%= image_tag item.get_image(100,100) %></td>
-    </tr>
-    <tr>
-      <td><%= item.name %></td>
-    </tr>
-    <tr>
-      <td><%= item.price %></td>
-    </tr>
-</table>
-<% end %>
-<%= link_to "すべての商品を見る",items_path %>
-
+  <div class="row">
+    <div class="col-10"></div>
+    <%= link_to "すべての商品を見る",items_path %>
+  </div>
+</div>
